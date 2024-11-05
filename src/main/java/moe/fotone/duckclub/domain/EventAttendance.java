@@ -20,5 +20,5 @@ public class EventAttendance extends BaseTimeEntity{
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private User participant;
+    private User user;
 }

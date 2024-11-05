@@ -21,6 +21,6 @@ public class Tag extends BaseTimeEntity{
     @Column(nullable = false, length = 60)
     private String name;
 
-    @OneToMany(mappedBy = "eventTags")
+    @OneToMany(mappedBy = "tag")
     private List<EventTag> eventTags = new ArrayList<>();
 }

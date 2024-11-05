@@ -32,12 +32,12 @@ public class User extends BaseTimeEntity{
 
     private boolean isVerified;
 
-    @OneToMany(mappedBy = "event")
+    @OneToMany(mappedBy = "user")
     private List<Event> events = new ArrayList<>();
 
-    @OneToMany(mappedBy = "eventAttendance")
+    @OneToMany(mappedBy = "user")
     private List<EventAttendance> attendances = new ArrayList<>();
 
-    @OneToMany(mappedBy = "comment")
+    @OneToMany(mappedBy = "user")
     private List<Comment> comments = new ArrayList<>();
 }

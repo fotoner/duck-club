@@ -16,16 +16,25 @@ public class Event extends BaseTimeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany(mappedBy = "eventAttendance")
-    private List<EventAttendance> events = new ArrayList<>();
+    @Column(name = "title", nullable = false)
+    private String title;
 
-    @OneToMany(mappedBy = "comment")
-    private List<Comment> comments = new ArrayList<>();
+    @Column(name = "content", columnDefinition = "TEXT")
+    private String content;
 
-    @OneToMany(mappedBy = "eventTags")
-    private List<EventTag> eventTags = new ArrayList<>();
+    @Column(name = "read_count", nullable = false, length = 10)
+    private Integer readCount;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private User writer;
+    private User user;
+
+    @OneToMany(mappedBy = "event")
+    private List<EventAttendance> events = new ArrayList<>();
+
+    @OneToMany(mappedBy = "event")
+    private List<Comment> comments = new ArrayList<>();
+
+    @OneToMany(mappedBy = "event")
+    private List<EventTag> eventTags = new ArrayList<>();
 }
