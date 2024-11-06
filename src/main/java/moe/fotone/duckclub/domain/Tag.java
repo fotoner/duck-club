@@ -1,10 +1,7 @@
 package moe.fotone.duckclub.domain;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -21,6 +18,6 @@ public class Tag extends BaseTimeEntity{
     @Column(nullable = false, length = 60)
     private String name;
 
-    @OneToMany(mappedBy = "tag")
+    @OneToMany(mappedBy = "tag", fetch = FetchType.LAZY)
     private List<EventTag> eventTags = new ArrayList<>();
 }
